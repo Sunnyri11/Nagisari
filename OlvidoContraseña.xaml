@@ -1,0 +1,23 @@
+﻿<Window x:Class="Sistema_de_Certificados.OlvidoContraseña"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sistema_de_Certificados"
+        mc:Ignorable="d"
+        Title="OlvidoContraseña" Height="450" Width="800" FontFamily="BankGothic Md BT" Foreground="Black"  FontSize="40">
+    <Grid Margin="4">
+        <Grid.Background>
+            <ImageBrush ImageSource="/cuenta.jfif"/>
+        </Grid.Background>
+        <StackPanel HorizontalAlignment="Center">
+            <TextBlock Text="Iniciar Sesion" Margin="0,10,0,0"></TextBlock>
+            <Image Source="/usuario.png" Height="157" Width="339" Margin="0,0,0,0"></Image>
+            <TextBlock Text="Cuenta" FontSize="30"></TextBlock>
+            <TextBox x:Name="cuenta" Height="39" FontSize="25" Background="AliceBlue"></TextBox>
+            <TextBlock Text="Contraseña" FontSize="30"></TextBlock>
+            <TextBox x:Name="passwi" Height="39" FontSize="25" Background="AliceBlue"></TextBox>
+            <Button Content="Restablecer contraseña" Margin="0,10,0,0" Height="39" FontSize="25" Background="AliceBlue" Width="388" Click="ResContra"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

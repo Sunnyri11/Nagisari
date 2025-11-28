@@ -1,0 +1,77 @@
+﻿<Window x:Class="Sistema_de_Certificados.Diseño"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sistema_de_Certificados"
+        mc:Ignorable="d"
+        Title="Diseño" Height="650" Width="1300" FontFamily="BankGothic Md BT" Foreground="Black" FontSize="25">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Margin="10" Grid.Row="0">
+            <ComboBox x:Name="FontSelector" Width="200"
+                      ItemsSource="{x:Static Fonts.SystemFontFamilies}" />
+            <Slider x:Name="SelectorNombreSize" Minimum="10" Maximum="72" Value="25" Width="150"/>
+            <Slider x:Name="SelectorCodigoSize" Minimum="10" Maximum="72" Value="25" Width="150"/>
+            <ComboBox x:Name="ColorSelector" Width="150">
+                <ComboBoxItem Content="Black"/>
+                <ComboBoxItem Content="Red"/>
+                <ComboBoxItem Content="Blue"/>
+                <ComboBoxItem Content="Green"/>
+                <ComboBoxItem Content="White"></ComboBoxItem>
+            </ComboBox>
+            <Slider x:Name="SelectorNombre" Minimum="100" Maximum="700" Value="200" Width="150"/>
+            <Slider x:Name="Codigo" Minimum="100" Maximum="500" Value="200" Width="150"></Slider>            
+            <Slider x:Name="SelectorImagen" Minimum="50" Maximum="200" Value="100" Width="150"/>
+            <Button Content="Confirmar" Click="Confirmacion" Margin="10,0,0,0" Background="AliceBlue"/>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Image Source="certificado_fondo.png" Stretch="UniformToFill"/>
+            <Canvas x:Name="CertificadoCanvas" Background="Transparent">
+                <Border BorderBrush="Black" BorderThickness="2"
+                        Canvas.Left="100" Canvas.Top="50"
+                        Width="{Binding ElementName=SelectorNombre, Path=Value}"
+                        Height="60"
+                        MouseLeftButtonDown="Elemento_MouseLeftButtonDown"
+                        MouseMove="Elemento_MouseMove"
+                        MouseLeftButtonUp="Elemento_MouseLeftButtonUp">
+                    <TextBlock x:Name="CertificadoText" Text="Nombre del Usuario"
+                               FontSize="{Binding ElementName=SelectorNombreSize, Path=Value}"
+                               FontFamily="{Binding ElementName=FontSelector, Path=SelectedItem}"
+                               Foreground="{Binding ElementName=ColorSelector, Path=SelectedItem.Content}"
+                               TextWrapping="Wrap"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"/>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="2"
+                        Canvas.Left="400" Canvas.Top="50"
+                        Width="{Binding ElementName=Codigo, Path=Value}"
+                        Height="60"
+                        MouseLeftButtonDown="Elemento_MouseLeftButtonDown"
+                        MouseMove="Elemento_MouseMove"
+                        MouseLeftButtonUp="Elemento_MouseLeftButtonUp">
+                    <TextBlock x:Name="CertificadoCodigo" Text="Codigo"
+                               FontSize="{Binding ElementName=SelectorCodigoSize, Path=Value}"
+                               FontFamily="{Binding ElementName=FontSelector, Path=SelectedItem}"
+                               Foreground="{Binding ElementName=ColorSelector, Path=SelectedItem.Content}"
+                               TextWrapping="Wrap"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"/>
+                </Border>
+                <Border BorderBrush="Black" BorderThickness="2"
+                        Canvas.Left="700" Canvas.Top="50"
+                        Width="{Binding ElementName=SelectorImagen, Path=Value}"
+                        Height="{Binding ElementName=SelectorImagen, Path=Value}"
+                        MouseLeftButtonDown="Elemento_MouseLeftButtonDown"
+                        MouseMove="Elemento_MouseMove"
+                        MouseLeftButtonUp="Elemento_MouseLeftButtonUp">
+                    <Image x:Name="ImagenQR" Stretch="Uniform"
+                           Source="placeholder.png"/>
+                </Border>
+            </Canvas>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>Sistema_de_Certificados</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="añi.png" />
+    <None Remove="cuenta.jfif" />
+    <None Remove="fondoproyect.jpg" />
+    <None Remove="logo.png" />
+    <None Remove="logoprub.png" />
+    <None Remove="top.jpg" />
+    <None Remove="topi.jpg" />
+    <None Remove="usuario.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.105.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="añi.png" />
+    <Resource Include="cuenta.jfif" />
+    <Resource Include="fondoproyect.jpg" />
+    <Resource Include="logo.png" />
+    <Resource Include="logoprub.png" />
+    <Resource Include="top.jpg" />
+    <Resource Include="topi.jpg" />
+    <Resource Include="usuario.png" />
+  </ItemGroup>
+
+</Project>
